@@ -81,12 +81,13 @@
         content: "";
         position: absolute;
         bottom: -5px;
-        left: 50%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
         width: 0;
         height: 2px;
         background-color: var(--primary-color);
-        transition: all 0.3s ease;
-        transform: translateX(-50%);
+        transition: width 0.3s ease;
       }
 
       .nav-link:hover::after {
@@ -169,21 +170,38 @@
 
       /* ===== HERO SECTION ===== */
       .hero {
-        padding: 80px 0;
+        padding: 60px 0;
         background: linear-gradient(135deg, #0f3a42 0%, #1a5a68 100%);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        background: radial-gradient(
+          circle at top right,
+          rgba(255, 122, 89, 0.08),
+          transparent 60%
+        );
+        pointer-events: none;
       }
 
       .hero-container {
         display: flex;
         align-items: center;
-        gap: 60px;
+        gap: 50px;
         max-width: 1200px;
         margin: 0 auto;
         padding: 30px 20px;
         background: linear-gradient(
           to bottom,
           transparent,
-          rgba(255, 122, 89, 0.05)
+          rgba(255, 122, 89, 0.03)
         );
         border-radius: 30px;
         position: relative;
@@ -191,27 +209,40 @@
 
       .hero-content {
         position: relative;
-        padding: 30px;
+        padding: 35px 40px;
         background: linear-gradient(
           135deg,
-          rgba(255, 255, 255, 0.05),
+          rgba(255, 255, 255, 0.03),
           transparent
         );
-        border-radius: 20px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(10px);
+        max-width: 600px;
       }
 
       .hero-content::before {
         content: "🎨";
         position: absolute;
-        top: -15px;
-        left: -15px;
-        font-size: 2rem;
+        top: -20px;
+        left: -20px;
+        font-size: 2.2rem;
         background: var(--card-bg);
-        padding: 10px;
+        padding: 12px;
         border-radius: 50%;
         border: 2px solid var(--primary-color);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 4px 20px rgba(255, 122, 89, 0.15);
+        animation: pulseIcon 3s ease-in-out infinite;
+      }
+
+      @keyframes pulseIcon {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
       }
 
       .hero-content h1 {
@@ -314,23 +345,27 @@
       .hero-image img,
       .hero-image svg {
         width: auto;
-        max-width: 300px;
+        max-width: 260px;
         height: auto;
-        border-radius: 20px;
-        box-shadow: 0 18px 40px rgba(2, 6, 10, 0.6),
-          0 6px 18px rgba(2, 6, 10, 0.4);
+        border-radius: 15px;
         transform-origin: 50% 50%;
         animation: float 6s ease-in-out infinite;
         display: inline-block;
-        border: 3px solid rgba(255, 255, 255, 0.1);
+        border: 2px solid rgba(255, 255, 255, 0.15);
         position: relative;
         z-index: 1;
+        transition: transform 0.3s ease;
+      }
+
+      .hero-image img:hover {
+        transform: scale(1.02);
       }
 
       /* anchor image to the right and add decorative accents */
       .hero-image {
         position: relative;
         margin-left: auto; /* push image to the right */
+        padding: 20px;
       }
 
       .hero-image::before {
@@ -1972,21 +2007,21 @@
       <div class="timeline-container">
         <div class="timeline-item">
           <div class="timeline-year">
-            <span>2018</span>
+            <span>2021</span>
             <div class="timeline-dot"></div>
           </div>
           <div class="timeline-content">
             <h3>Started Journey</h3>
             <p>
               Began my creative journey with a passion for design. Mastered
-              UI/UX fundamentals and created my first digital art portfolio.
+              graphics fundamentals and created my first digital art portfolio.
             </p>
             <div class="timeline-icon">🚀</div>
           </div>
         </div>
         <div class="timeline-item">
           <div class="timeline-year">
-            <span>2020</span>
+            <span>2023</span>
             <div class="timeline-dot"></div>
           </div>
           <div class="timeline-content">
@@ -2000,14 +2035,13 @@
         </div>
         <div class="timeline-item">
           <div class="timeline-year">
-            <span>2023</span>
+            <span>2025</span>
             <div class="timeline-dot"></div>
           </div>
           <div class="timeline-content">
-            <h3>Lead Designer</h3>
+            <h3>UI/UX Designer</h3>
             <p>
-              Promoted to Lead Designer, managing creative teams and driving
-              innovation in multiple award-winning projects.
+              Started to my first professional journey at 9AM Solution(Intern) 
             </p>
             <div class="timeline-icon">👑</div>
           </div>
@@ -2293,21 +2327,21 @@
           <div class="journey-item">
             <div class="journey-marker"></div>
             <div class="journey-content">
-              <h3>2023 - Creative Director</h3>
-              <p>Became creative director overseeing all design projects</p>
+              <h3>2025 - UI/UX designer Intern</h3>
+              <p>Started my professional jouerny at 9AM Solution</p>
             </div>
           </div>
           <div class="journey-item">
             <div class="journey-marker"></div>
             <div class="journey-content">
-              <h3>2020 - Senior Designer</h3>
-              <p>Promoted to senior designer, leading design teams</p>
+              <h3>2024 - UI UX design</h3>
+              <p>Started to learn and develop my ui/ux jouerny</p>
             </div>
           </div>
           <div class="journey-item">
             <div class="journey-marker"></div>
             <div class="journey-content">
-              <h3>2017 - Design Agency</h3>
+              <h3>2023 - Design Agency</h3>
               <p>Joined a creative agency as a junior designer</p>
             </div>
           </div>
@@ -2315,7 +2349,7 @@
           <div class="journey-item">
             <div class="journey-marker"></div>
             <div class="journey-content">
-              <h3>2015 - Freelance Designer</h3>
+              <h3>2022 - Graphics Design</h3>
               <p>Started freelancing and built my first portfolio</p>
             </div>
           </div>
